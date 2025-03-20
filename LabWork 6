@@ -1,0 +1,7 @@
+лаб6
+
+Задание по NLP, которое мы должны были делать на оффлайн-практике такое:
+Подключить локальный deepseek и создать для него веб-интерфейс при помощи openWebUI
+Руководство для убунту: https://pq.hosting/help/polnoe-rukovodstvo-po-ustanovke-deepseek-lokalno-s-ollama-llm-na-ubuntu-2404
+openwebui: https://github.com/open-webui/open-webui 
+OpenWebUI на винде: https://www.gpu-mart.com/blog/how-to-install-and-use-ollama-webui-on-windows
