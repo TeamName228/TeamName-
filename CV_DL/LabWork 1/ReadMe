@@ -1,0 +1,8 @@
+Задача: обучить модель Taechable Machine отличать песиков от котиков, выгрузить модель (вкладка Tensorflow, тип преобразования Keras), добавить ее в свой проект в *.ipynb (ноутбук) и протестировать решение. 
+Решение отправить в гугл-таблицу ссылкой на гитхаб или гугл колаб (одно решение на команду)
+
+
+Ссылки: 
+https://teachablemachine.withgoogle.com/train/image - teachable machine
+http://vision.stanford.edu/aditya86/ImageNetDogs/ - датасет с песиками
+https://images.cv/download/cat/18299 - датасет с котиками
