@@ -14,9 +14,9 @@
 
 ## Стек технологий
 
-<dl><dd><dl><dd><dl><dd>
+<dl><dd><dl><dd>
 •	Язык программирования: Python
-</dd></dl></dd></dl></dd></dl>
+</dd></dl></dd></dl>
 
 <p>  •	Язык программирования: Python</p>
 <p>  •	Среда: Jupyter Notebook</p>
