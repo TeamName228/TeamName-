@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Распознавание математических символов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+    <h1 class="text-2xl font-bold mb-4 text-center">Распознавание математических символов</h1>
+
+    <!-- Форма загрузки изображения -->
+    <form th:action="@{/upload}" method="post" enctype="multipart/form-data" class="mb-4">
+        <div class="mb-4">
+            <label for="image" class="block text-sm font-medium text-gray-700">Выберите изображение</label>
+            <input type="file" id="image" name="image" accept="image/*" class="mt-1 block w-full border-gray-300 rounded-md">
+        </div>
+
+        <!-- Предпросмотр и обрезка изображения -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Предпросмотр и обрезка</label>
+            <div id="preview" class="mt-2 flex justify-center relative">
+                <img id="previewImage" src="" alt="Предпросмотр" class="hidden max-w-full h-auto">
+                <canvas id="cropCanvas" style="display:none;"></canvas>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Выделите только символ, чтобы исключить фон.</p>
+            <div class="mt-2 flex gap-2">
+                <button type="button" id="cropButton" class="bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-600">Обрезать</button>
+                <button type="button" id="confirmCrop" class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600 hidden">Подтвердить</button>
+            </div>
+            <input type="hidden" name="imageData" id="imageData">
+        </div>
+
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Распознать символ</button>
+    </form>
+
+    <!-- Вывод результата или ошибки -->
+    <div th:if="${success}" class="mt-4 p-4 bg-green-100 text-green-700 rounded">
+        <p th:text="${success}"></p>
+        <p>Символ: <span th:text="${symbol}"></span></p>
+        <p>LaTeX: <span th:text="${latex}"></span></p>
+        <p>Уверенность: <span th:text="${confidence}"></span></p>
+    </div>
+    <div th:if="${error}" class="mt-4 p-4 bg-red-100 text-red-700 rounded">
+        Ошибка: <span th:text="${error}"></span>
+    </div>
+</div>
+
+<script>
+    const imageInput = document.getElementById('image');
+    const previewImage = document.getElementById('previewImage');
+    const cropButton = document.getElementById('cropButton');
+    const confirmCrop = document.getElementById('confirmCrop');
+    const cropCanvas = document.getElementById('cropCanvas');
+    const imageDataInput = document.getElementById('imageData');
+    let cropper;
+
+    // Предпросмотр изображения
+    imageInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            previewImage.src = URL.createObjectURL(file);
+            previewImage.classList.remove('hidden');
+            if (cropper) cropper.destroy();
+            cropper = new Cropper(previewImage, {
+                aspectRatio: 1,
+                viewMode: 1,
+                dragMode: 'move',
+                autoCropArea: 1,
+                cropBoxResizable: false,
+                minCropBoxWidth: 32,
+                minCropBoxHeight: 32,
+                ready: function() {
+                    cropper.setCropBoxData({ width: 32, height: 32 });
+                }
+            });
+        }
+    });
+
+    // Активация обрезки
+    cropButton.addEventListener('click', function() {
+        if (cropper) {
+            cropper.enable();
+            confirmCrop.classList.remove('hidden');
+        }
+    });
+
+    // Подтверждение обрезки
+    confirmCrop.addEventListener('click', function() {
+        if (cropper) {
+            console.log('Подтверждение обрезки...');
+            const canvas = cropper.getCroppedCanvas({ width: 32, height: 32 });
+            if (canvas) {
+                cropCanvas.width = 32;
+                cropCanvas.height = 32;
+                const ctx = cropCanvas.getContext('2d');
+                ctx.drawImage(canvas, 0, 0, 32, 32);
+                imageDataInput.value = cropCanvas.toDataURL('image/jpeg');
+                previewImage.src = cropCanvas.toDataURL('image/jpeg');
+                console.log('Обрезка завершена, imageData:', imageDataInput.value);
+                cropper.destroy();
+                confirmCrop.classList.add('hidden');
+            } else {
+                console.error('Ошибка: не удалось получить обрезанное изображение');
+            }
+        } else {
+            console.error('Ошибка: cropper не инициализирован');
+        }
+    });
+</script>
+</body>
+</html>
