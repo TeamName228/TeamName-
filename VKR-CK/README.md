@@ -2,10 +2,8 @@
 
 ## Практическая значимость проекта:
 <dl><dd><dl><dd>
-<p>•	Автоматизация обработки рукописных заметок (например, в образовании для проверки задач).</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>•	Цифровизация научных и инженерных записей (распознавание математических символов из формул из конспектов, чертежей).</p>
+•	Автоматизация обработки рукописных заметок (например, в образовании для проверки задач).
+•	Цифровизация научных и инженерных записей (распознавание математических символов из формул из конспектов, чертежей).
 </dd></dl></dd></dl>
 
 ## Цель работы
@@ -17,39 +15,17 @@
 
 <dl><dd><dl><dd>
 •	Язык программирования: Python
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Среда: Jupyter Notebook</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Операционная система: WSL (Windows Subsystem for Linux) с Ubuntu</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Обработка данных: pandas, numpy</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Обработка изображений: PIL, OpenCV (cv2)</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Глубокое обучение: PyTorch (torch, torch.nn, torch.optim, torchvision.transforms, torch.amp, torch.optim.lr_scheduler), CUDA</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Машинное обучение: scikit-learn (train_test_split, compute_class_weight)</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Мониторинг: tqdm</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Визуализация: matplotlib</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Работа с файлами: json, os, zipfile</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Конвертация LaTeX: pylatexenc</p>
-</dd></dl></dd></dl>
-<dl><dd><dl><dd>
-<p>  •	Анализ модели: torchsummary</p>
+•	Среда: Jupyter Notebook
+•	Операционная система: WSL (Windows Subsystem for Linux) с Ubuntu
+•	Обработка данных: pandas, numpy
+•	Обработка изображений: PIL, OpenCV (cv2)
+•	Глубокое обучение: PyTorch (torch, torch.nn, torch.optim, torchvision.transforms, torch.amp, torch.optim.lr_scheduler), CUDA
+•	Машинное обучение: scikit-learn (train_test_split, compute_class_weight)
+•	Мониторинг: tqdm
+•	Визуализация: matplotlib
+•	Работа с файлами: json, os, zipfile
+•	Конвертация LaTeX: pylatexenc
+•	Анализ модели: torchsummary
 </dd></dl></dd></dl>
 
 ## Архитектура модели
@@ -57,23 +33,22 @@
 Модель EnhancedSymbolCNN была разработана как CNN для классификации символов. Ее структура включает:
   <dl><dd><dl><dd>
   •	Сверточные слои:
-  </dd></dl></dd></dl>
-      <dl><dd><dl><dd><dl><dd>
+      <dl><dd><dl><dd>
       Три блока, каждый из которых содержит два слоя Conv2d с увеличивающимся числом фильтров (32, 64, 128), за которыми следуют BatchNorm2d, активация ReLU и MaxPool2d 
       (размер ядра     2, шаг 2). Ядра имеют размер 3x3 с паддингом 1.
-      </dd></dl></dd></dl></dd></dl>
+      </dd></dl></dd></dl>
   •	Классификационные слои:
-      <dl><dd><dl><dd><dl><dd><dl><dd>
+    <dl><dd><dl><dd>
       После сверток данные проходят через последовательность полносвязных слоев:
-      </dd></dl></dd></dl></dd></dl></dd></dl>
-      <dl><dd><dl><dd><dl><dd><dl><dd>
+      <dl><dd><dl><dd>
         o	Линейный слой (128 * 4 * 4 → 1024) с ReLU и dropout (0.5).
         o	Линейный слой (1024 → 512) с ReLU и dropout (0.5).
         o	Финальный линейный слой (512 → 369) для классификации на 369 классов.
-        </dd></dl></dd></dl></dd></dl></dd></dl>
+        </dd></dl></dd></dl>
+      </dd></dl></dd></dl>
   •	Параметры: Модель содержит около 3,1 миллиона параметров, что подтверждено выводом torchsummary.
   •	Устройство: Модель обучалась на CUDA, если доступен GPU, иначе на CPU, с использованием смешанной точности (torch.amp) для повышения эффективности.
-
+  </dd></dl></dd></dl>
 
 Название Набор данных HASYv2
 HASYv2 Dataset — это набор данных отдельных символов. 
