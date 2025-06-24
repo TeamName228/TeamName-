@@ -2,8 +2,7 @@
 
 ## **Содержание**
 
-[Команда NoComments](#title1)<p></p>
-<dl><dd><dl><dd></dd></dl></dd></dl>
+[Команда NoComments](#title1)<dl><dd><dl><dd><p></p></dd></dl></dd></dl>
 [Практическая значимость проекта](#title2)<p></p>
 [Цель работы](#title3)<p></p>
 [Стек технологий](#title4)<p></p>
