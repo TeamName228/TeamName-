@@ -17,20 +17,39 @@
 <dl><dd><dl><dd>
 •	Язык программирования: Python
 </dd></dl></dd></dl>
-
-<p>  •	Язык программирования: Python</p>
+<dl><dd><dl><dd>
 <p>  •	Среда: Jupyter Notebook</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Операционная система: WSL (Windows Subsystem for Linux) с Ubuntu</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Обработка данных: pandas, numpy</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Обработка изображений: PIL, OpenCV (cv2)</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Глубокое обучение: PyTorch (torch, torch.nn, torch.optim, torchvision.transforms, torch.amp, torch.optim.lr_scheduler), CUDA</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Машинное обучение: scikit-learn (train_test_split, compute_class_weight)</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Мониторинг: tqdm</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Визуализация: matplotlib</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Работа с файлами: json, os, zipfile</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Конвертация LaTeX: pylatexenc</p>
+</dd></dl></dd></dl>
+<dl><dd><dl><dd>
 <p>  •	Анализ модели: torchsummary</p>
-
+</dd></dl></dd></dl>
 
 ## Архитектура модели
 
