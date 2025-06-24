@@ -15,16 +15,16 @@
 
 <p>•	Язык программирования: Python</p>
 <p>•	Среда: Jupyter Notebook</p>
-•	Операционная система: WSL (Windows Subsystem for Linux) с Ubuntu
-•	Обработка данных: pandas, numpy
-•	Обработка изображений: PIL, OpenCV (cv2)
-•	Глубокое обучение: PyTorch (torch, torch.nn, torch.optim, torchvision.transforms, torch.amp, torch.optim.lr_scheduler), CUDA
-•	Машинное обучение: scikit-learn (train_test_split, compute_class_weight)
-•	Мониторинг: tqdm
-•	Визуализация: matplotlib
-•	Работа с файлами: json, os, zipfile
-•	Конвертация LaTeX: pylatexenc
-•	Анализ модели: torchsummary
+<p>•	Операционная система: WSL (Windows Subsystem for Linux) с Ubuntu</p>
+<p>•	Обработка данных: pandas, numpy</p>
+<p>•	Обработка изображений: PIL, OpenCV (cv2)</p>
+<p>•	Глубокое обучение: PyTorch (torch, torch.nn, torch.optim, torchvision.transforms, torch.amp, torch.optim.lr_scheduler), CUDA</p>
+<p>•	Машинное обучение: scikit-learn (train_test_split, compute_class_weight)</p>
+<p>•	Мониторинг: tqdm</p>
+<p>•	Визуализация: matplotlib</p>
+<p>•	Работа с файлами: json, os, zipfile</p>
+<p>•	Конвертация LaTeX: pylatexenc</p>
+<p>•	Анализ модели: torchsummary</p>
 
 
 ## Архитектура модели
