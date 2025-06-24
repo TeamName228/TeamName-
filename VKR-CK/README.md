@@ -14,7 +14,11 @@
 
 ## Стек технологий
 
-<p><p>ㅤ</p>  •	Язык программирования: Python</p>
+<dl><dd><dl><dd><dl><dd><dl><dd>
+•	Язык программирования: Python
+</dd></dl></dd></dl></dd></dl></dd></dl>
+
+<p>  •	Язык программирования: Python</p>
 <p>  •	Среда: Jupyter Notebook</p>
 <p>  •	Операционная система: WSL (Windows Subsystem for Linux) с Ubuntu</p>
 <p>  •	Обработка данных: pandas, numpy</p>
